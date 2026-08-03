@@ -168,9 +168,15 @@
   .hero-visual{animation-delay:.35s;}
   .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;height:560px;}
   .hero-visual .glow{
-    position:absolute;width:380px;height:380px;border-radius:50%;
-    background:radial-gradient(circle, rgba(217,142,146,0.28), transparent 68%);
-    filter:blur(4px);
+    position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,250,248,0.65) 42%, transparent 72%);
+    filter:blur(2px);
+  }
+  .logo-backdrop{
+    position:absolute;width:330px;height:330px;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.78) 60%, rgba(255,255,255,0.15) 100%);
+    backdrop-filter:blur(6px);
+    box-shadow:0 20px 60px -15px rgba(90,50,55,0.35), 0 0 0 1px rgba(217,142,146,0.25) inset;
   }
   .medallion-ring{
     position:absolute;width:430px;height:430px;border-radius:50%;
@@ -184,7 +190,7 @@
   .medallion-ring::after{top:auto;bottom:-2.5px;}
   .medallion-ring.inner{width:360px;height:360px;border-color:rgba(217,142,146,0.2);animation:spin 65s linear infinite reverse;}
   @keyframes spin{to{transform:rotate(360deg);}}
-  .hero-logo{position:relative;z-index:2;width:300px;filter:drop-shadow(0 30px 44px rgba(17,17,17,0.18));animation:float 6s ease-in-out infinite;}
+  .hero-logo{position:relative;z-index:2;width:290px;filter:drop-shadow(0 18px 30px rgba(60,30,35,0.35)) drop-shadow(0 2px 6px rgba(60,30,35,0.25));animation:float 6s ease-in-out infinite;}
   @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
   .rose-deco{position:absolute;opacity:.85;}
   .rose-deco.r1{top:6%;left:-4%;width:90px;transform:rotate(-12deg);}
@@ -437,6 +443,7 @@
     .hero-logo{width:200px;}
     .medallion-ring{width:270px;height:270px;}
     .medallion-ring.inner{width:220px;height:220px;}
+    .logo-backdrop{width:230px;height:230px;}
     .collections-grid,.products-grid{grid-template-columns:repeat(2,1fr);}
     .why-grid{grid-template-columns:repeat(3,1fr);row-gap:36px;}
     .reviews-grid{grid-template-columns:1fr;}
@@ -520,6 +527,7 @@
       <div class="glow"></div>
       <div class="medallion-ring"></div>
       <div class="medallion-ring inner"></div>
+      <div class="logo-backdrop"></div>
       <img class="hero-logo" id="heroLogo" alt="Mulk Parfumerie by Anna — Le luxe à fleur de peau">
     </div>
   </div>
