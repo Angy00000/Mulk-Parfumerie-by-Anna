@@ -250,29 +250,30 @@
   .collection-card a{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);border-bottom:1px solid var(--gold-deep);padding-bottom:3px;}
 
   /* ===== PRODUCTS ===== */
-  .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 28px;}
-  .product-card{background:var(--white);border:1px solid var(--line);position:relative;padding:14px;display:flex;flex-direction:column;transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;}
-  .product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(217,142,146,0.5);}
-  .product-tags{display:flex;justify-content:space-between;gap:8px;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#9b9187;padding:0 2px 10px;}
+  .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 16px;}
+  .product-card{background:var(--white);border:1px solid var(--line);position:relative;padding:9px;display:flex;flex-direction:column;transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;}
+  .product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(217,142,146,0.5);}
+  .product-tags{display:flex;justify-content:space-between;gap:6px;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:#9b9187;padding:0 1px 7px;}
+  .product-tags span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .product-tags span:last-child{color:var(--gold-deep);}
   .product-media{
-    aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+    aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
     cursor:pointer;background:linear-gradient(150deg,var(--rose-powder),var(--ivory));
   }
   .product-media img{transition:transform .5s cubic-bezier(.2,.8,.2,1);}
   .product-card:hover .product-media img{transform:scale(1.05);}
-  .badge-new{position:absolute;top:14px;left:14px;background:var(--noir);color:#fff;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:6px 10px;z-index:2;}
-  .product-info{padding:14px 2px 0;text-align:left;display:flex;flex-direction:column;flex:1;}
-  .product-info h3{font-size:16.5px;font-weight:600;text-transform:uppercase;font-style:normal;letter-spacing:0.02em;font-family:'Cormorant Garamond',serif;margin-bottom:6px;line-height:1.25;}
-  .product-info .vol{font-size:11.5px;color:#8b8178;letter-spacing:0.03em;}
-  .product-info .price{font-size:15px;color:var(--noir);letter-spacing:0.02em;margin:2px 0 16px;font-family:'Jost',sans-serif;font-weight:600;margin-top:auto;padding-top:10px;}
-  .product-info .price.pending{color:var(--gold-deep);font-size:13px;font-family:'Jost';font-style:italic;font-weight:400;letter-spacing:0.02em;margin-top:auto;padding-top:10px;}
+  .badge-new{position:absolute;top:9px;left:9px;background:var(--noir);color:#fff;font-size:7.5px;letter-spacing:0.14em;text-transform:uppercase;padding:4px 7px;z-index:2;}
+  .product-info{padding:9px 1px 0;text-align:left;display:flex;flex-direction:column;flex:1;}
+  .product-info h3{font-size:12.5px;font-weight:600;text-transform:uppercase;font-style:normal;letter-spacing:0.01em;font-family:'Cormorant Garamond',serif;margin-bottom:4px;line-height:1.2;}
+  .product-info .vol{font-size:10px;color:#8b8178;letter-spacing:0.02em;}
+  .product-info .price{font-size:12.5px;color:var(--noir);letter-spacing:0.01em;margin:2px 0 10px;font-family:'Jost',sans-serif;font-weight:600;margin-top:auto;padding-top:6px;}
+  .product-info .price.pending{color:var(--gold-deep);font-size:11px;font-family:'Jost';font-style:italic;font-weight:400;letter-spacing:0.02em;margin-top:auto;padding-top:6px;}
   .product-media img, .nmedia img, .cimg img{width:100%;height:100%;object-fit:cover;}
   .modal-media img{width:100%;height:100%;object-fit:cover;}
   .product-actions button:disabled{opacity:.45;cursor:not-allowed;}
   .product-actions button:disabled:hover{background:transparent;color:var(--noir);}
-  .product-actions{display:flex;gap:10px;}
-  .product-actions button{flex:1;font-size:10px;padding:12px 10px;letter-spacing:0.14em;text-transform:uppercase;border:1px solid var(--noir);transition:.35s;}
+  .product-actions{display:flex;flex-direction:column;gap:6px;}
+  .product-actions button{width:100%;font-size:9px;padding:8px 6px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--noir);transition:.35s;}
   .product-actions .add{background:var(--noir);color:#fff;}
   .product-actions .add:hover{background:var(--gold-deep);border-color:var(--gold-deep);}
   .product-actions .buy{background:transparent;color:var(--noir);}
@@ -472,7 +473,8 @@
     .medallion-ring{width:270px;height:270px;}
     .medallion-ring.inner{width:220px;height:220px;}
     .logo-backdrop{width:230px;height:230px;}
-    .collections-grid,.products-grid{grid-template-columns:repeat(2,1fr);}
+    .collections-grid{grid-template-columns:repeat(2,1fr);}
+    .products-grid{grid-template-columns:repeat(3,1fr);}
     .why-grid{grid-template-columns:repeat(3,1fr);row-gap:36px;}
     .reviews-grid{grid-template-columns:1fr;}
     .social-grid{grid-template-columns:repeat(3,1fr);}
@@ -531,7 +533,8 @@
     .header-icons{gap:14px;}
     .section{padding:80px 0;}
     .container{padding:0 20px;}
-    .collections-grid,.products-grid{grid-template-columns:1fr;}
+    .collections-grid{grid-template-columns:1fr;}
+    .products-grid{grid-template-columns:repeat(2,1fr);gap:12px 10px;}
     .why-grid{grid-template-columns:repeat(2,1fr);}
     .social-grid{grid-template-columns:repeat(2,1fr);}
     .footer-grid{grid-template-columns:1fr;}
@@ -994,7 +997,7 @@ const products = [
 
   // ---- Lattafa ----
   {id:2, name:"Musamam White Intense", brand:"Lattafa", cat:"Parfums Arabes", desc:"Une composition blanche et intense, fleurs blanches et musc, au flacon serpent doré emblématique.", img:"musamam", isNew:false, vol:"100 ml", price:25000},
-  {id:3, name:"Eclaire", brand:"Oud Al Malik", cat:"Parfums Arabes", desc:"Boisé gourmand entre oud, noisette et éclair au chocolat — une signature longue tenue et réconfortante.", img:"eclaire", isNew:true, vol:"50 ml", price:25000},
+  {id:3, name:"Eclaire", brand:"Oud Al Malik", cat:"Parfums Arabes", desc:"Boisé gourmand entre oud, noisette et éclair au chocolat — une signature longue tenue et réconfortante.", img:"eclaire", isNew:true, vol:"100 ml", price:25000},
 
   // ---- Paris Corner ----
   {id:4, name:"Khair Confection", brand:"Paris Corner", cat:"Parfums Arabes", desc:"Une confiserie olfactive sucrée et florale, au flacon rose et or éclatant.", img:"khairconfection", isNew:false, pending:true},
@@ -1018,20 +1021,20 @@ const products = [
   {id:16, name:"Utopia Vanilla Coco 21", brand:"Kay Ali", cat:"Parfums de Luxe", desc:"Noix de coco crémeuse et vanille sur fond floral, une échappée tropicale.", img:"kautopia21", isNew:true, vol:"100 ml", price:20000},
 
   // ---- Brumes & Mists ----
-  {id:17, name:"Vanilla Rose", brand:"Royal Collection", cat:"Brumes & Mists", desc:"Vanille douce et rose gourmande, dans un flacon vert pastel élégant.", img:"royalvanillarose", isNew:true, vol:"60 ml", price:15000},
-  {id:18, name:"Rose Noir", brand:"Royal Collection", cat:"Brumes & Mists", desc:"Une rose sombre et sophistiquée, sertie dans un flacon rose poudré.", img:"royalrosenoir", isNew:true, vol:"80 ml", price:15000},
-  {id:19, name:"Vanilla Extreme", brand:"Royal Collection", cat:"Brumes & Mists", desc:"Vanille intense et ambrée pour un sillage gourmand et corsé.", img:"royalvanillaextreme", isNew:true, vol:"60 ml", price:15000},
-  {id:20, name:"Pear Glacé", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume parfumée fraîche à la poire glacée, légère et fruitée.", img:"vspearglace", isNew:true, vol:"250 ml", price:15000},
-  {id:21, name:"Coconut Passion", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume ensoleillée à la noix de coco, une échappée tropicale.", img:"vscoconutpassion", isNew:true, vol:"250 ml", price:15000},
-  {id:22, name:"Pure Seduction", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume gourmande aux fruits juteux et fleur de freesia, irrésistible.", img:"vspureseduction", isNew:true, vol:"250 ml", price:15000},
-  {id:23, name:"Love Spell", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume florale et fruitée iconique, entre pêche et fleurs de cerisier.", img:"vslovespell", isNew:true, vol:"250 ml", price:15000},
-  {id:24, name:"Pure Seduction Shimmer", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume scintillante aux fruits gourmands, pour une peau lumineuse.", img:"vspureseductionshimmer", isNew:true, vol:"250 ml", price:15000},
-  {id:25, name:"Velvet Petals Shimmer", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume florale scintillante aux pétales veloutés et à la pêche.", img:"vsvelvetpetalsshimmer", isNew:true, vol:"250 ml", price:15000},
-  {id:26, name:"Aqua Kiss", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume aquatique et gourmande, entre aloe vera et fleurs blanches.", img:"vsaquakiss", isNew:true, vol:"250 ml", price:15000},
-  {id:27, name:"Bare Vanilla Shimmer", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume scintillante à la vanille et au jasmin, douce et lumineuse.", img:"vsbarevanillashimmer", isNew:true, vol:"250 ml", price:15000},
-  {id:28, name:"Coffret Fragrance Mist", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Un assortiment de brumes parfumées Victoria's Secret aux senteurs variées.", img:"vscoffret", isNew:true, vol:"Coffret", price:15000},
-  {id:29, name:"Coffret Cheirosa", brand:"Sol de Janeiro", cat:"Brumes & Mists", desc:"La collection culte des brumes parfumées Cheirosa, aux senteurs gourmandes brésiliennes.", img:"sdjcoffret", isNew:true, vol:"Coffret", price:15000},
-  {id:30, name:"Coffret Brume de Corps", brand:"Mulk", cat:"Brumes & Mists", desc:"Un coffret de 6 brumes de corps aux senteurs inspirées, à petit prix.", img:"brumecoffret", isNew:true, vol:"Coffret", price:15000}
+  {id:17, name:"Vanilla Rose", brand:"Royal Collection", cat:"Brumes & Mists", desc:"Vanille douce et rose gourmande, dans un flacon vert pastel élégant.", img:"royalvanillarose", isNew:true, vol:"60 ml", price:6000},
+  {id:18, name:"Rose Noir", brand:"Royal Collection", cat:"Brumes & Mists", desc:"Une rose sombre et sophistiquée, sertie dans un flacon rose poudré.", img:"royalrosenoir", isNew:true, vol:"80 ml", price:6000},
+  {id:19, name:"Vanilla Extreme", brand:"Royal Collection", cat:"Brumes & Mists", desc:"Vanille intense et ambrée pour un sillage gourmand et corsé.", img:"royalvanillaextreme", isNew:true, vol:"60 ml", price:6000},
+  {id:20, name:"Pear Glacé", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume parfumée fraîche à la poire glacée, légère et fruitée.", img:"vspearglace", isNew:true, vol:"250 ml", price:6000},
+  {id:21, name:"Coconut Passion", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume ensoleillée à la noix de coco, une échappée tropicale.", img:"vscoconutpassion", isNew:true, vol:"250 ml", price:6000},
+  {id:22, name:"Pure Seduction", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume gourmande aux fruits juteux et fleur de freesia, irrésistible.", img:"vspureseduction", isNew:true, vol:"250 ml", price:6000},
+  {id:23, name:"Love Spell", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume florale et fruitée iconique, entre pêche et fleurs de cerisier.", img:"vslovespell", isNew:true, vol:"250 ml", price:6000},
+  {id:24, name:"Pure Seduction Shimmer", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume scintillante aux fruits gourmands, pour une peau lumineuse.", img:"vspureseductionshimmer", isNew:true, vol:"250 ml", price:6000},
+  {id:25, name:"Velvet Petals Shimmer", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume florale scintillante aux pétales veloutés et à la pêche.", img:"vsvelvetpetalsshimmer", isNew:true, vol:"250 ml", price:6000},
+  {id:26, name:"Aqua Kiss", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume aquatique et gourmande, entre aloe vera et fleurs blanches.", img:"vsaquakiss", isNew:true, vol:"250 ml", price:6000},
+  {id:27, name:"Bare Vanilla Shimmer", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Brume scintillante à la vanille et au jasmin, douce et lumineuse.", img:"vsbarevanillashimmer", isNew:true, vol:"250 ml", price:6000},
+  {id:28, name:"Coffret Fragrance Mist", brand:"Victoria's Secret", cat:"Brumes & Mists", desc:"Un assortiment de brumes parfumées Victoria's Secret aux senteurs variées.", img:"vscoffret", isNew:true, vol:"Coffret", price:6000},
+  {id:29, name:"Coffret Cheirosa", brand:"Sol de Janeiro", cat:"Brumes & Mists", desc:"La collection culte des brumes parfumées Cheirosa, aux senteurs gourmandes brésiliennes.", img:"sdjcoffret", isNew:true, vol:"Coffret", price:1500},
+  {id:30, name:"Brume de Corps", brand:"Mulk", cat:"Brumes & Mists", desc:"Brume de corps parfumée inspirée, légère et longue tenue.", img:"brumecoffret", isNew:true, vol:"100 ml", price:1500}
 ];
 const whatsNumber = "221772476288";
 
