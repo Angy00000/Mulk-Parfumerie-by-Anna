@@ -23,7 +23,7 @@
     --shadow: 0 20px 60px -20px rgba(17,17,17,0.18);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
   body{
     background:
       radial-gradient(ellipse 900px 500px at 8% -5%, rgba(247,214,223,0.35), transparent 60%),
@@ -251,7 +251,7 @@
 
   /* ===== PRODUCTS ===== */
   .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 16px;}
-  .product-card{background:var(--white);border:1px solid var(--line);position:relative;padding:9px;display:flex;flex-direction:column;transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;}
+  .product-card{background:var(--white);border:1px solid var(--line);position:relative;padding:9px;display:flex;flex-direction:column;min-width:0;overflow:hidden;transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;}
   .product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(217,142,146,0.5);}
   .product-tags{display:flex;justify-content:space-between;gap:6px;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:#9b9187;padding:0 1px 7px;}
   .product-tags span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -264,7 +264,7 @@
   .product-card:hover .product-media img{transform:scale(1.05);}
   .badge-new{position:absolute;top:9px;left:9px;background:var(--noir);color:#fff;font-size:7.5px;letter-spacing:0.14em;text-transform:uppercase;padding:4px 7px;z-index:2;}
   .product-info{padding:9px 1px 0;text-align:left;display:flex;flex-direction:column;flex:1;}
-  .product-info h3{font-size:12.5px;font-weight:600;text-transform:uppercase;font-style:normal;letter-spacing:0.01em;font-family:'Cormorant Garamond',serif;margin-bottom:4px;line-height:1.2;}
+  .product-info h3{font-size:12.5px;font-weight:600;text-transform:uppercase;font-style:normal;letter-spacing:0.01em;font-family:'Cormorant Garamond',serif;margin-bottom:4px;line-height:1.2;word-break:break-word;}
   .product-info .vol{font-size:10px;color:#8b8178;letter-spacing:0.02em;}
   .product-info .price{font-size:12.5px;color:var(--noir);letter-spacing:0.01em;margin:2px 0 10px;font-family:'Jost',sans-serif;font-weight:600;margin-top:auto;padding-top:6px;}
   .product-info .price.pending{color:var(--gold-deep);font-size:11px;font-family:'Jost';font-style:italic;font-weight:400;letter-spacing:0.02em;margin-top:auto;padding-top:6px;}
@@ -273,7 +273,7 @@
   .product-actions button:disabled{opacity:.45;cursor:not-allowed;}
   .product-actions button:disabled:hover{background:transparent;color:var(--noir);}
   .product-actions{display:flex;flex-direction:column;gap:6px;}
-  .product-actions button{width:100%;font-size:9px;padding:8px 6px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--noir);transition:.35s;}
+  .product-actions button{width:100%;font-size:9px;padding:8px 4px;letter-spacing:0.02em;text-transform:uppercase;border:1px solid var(--noir);transition:.35s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .product-actions .add{background:var(--noir);color:#fff;}
   .product-actions .add:hover{background:var(--gold-deep);border-color:var(--gold-deep);}
   .product-actions .buy{background:transparent;color:var(--noir);}
