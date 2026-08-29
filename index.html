@@ -418,6 +418,36 @@
   .cart-foot .btn{width:100%;}
   .cart-empty-note{font-size:11.5px;color:#a39a90;text-align:center;margin-top:10px;}
 
+  /* ===== CHECKOUT FORM ===== */
+  .checkout-step{flex:1;overflow-y:auto;padding:22px 28px 28px;display:flex;flex-direction:column;}
+  .back-link{align-self:flex-start;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#a39a90;margin-bottom:18px;transition:color .3s;}
+  .back-link:hover{color:var(--gold-deep);}
+  .order-form{display:flex;flex-direction:column;gap:16px;}
+  .of-row{display:flex;gap:12px;}
+  .of-row .of-field{flex:1;min-width:0;}
+  .of-field label{display:block;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#a39a90;margin-bottom:7px;}
+  .of-field input,.of-field textarea{
+    width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;
+    padding:8px 2px;font-size:14px;color:var(--noir);font-family:'Jost',sans-serif;font-weight:300;
+    transition:border-color .3s;resize:none;
+  }
+  .of-field input:focus,.of-field textarea:focus{outline:none;border-bottom-color:var(--gold-deep);}
+  .of-field input::placeholder,.of-field textarea::placeholder{color:#cabfb5;}
+  .loc-btn{
+    display:flex;align-items:center;gap:9px;width:100%;padding:12px 14px;
+    border:1px solid var(--line);background:var(--ivory);font-size:11.5px;
+    letter-spacing:0.06em;color:var(--noir-soft);transition:all .3s;
+  }
+  .loc-btn:hover{border-color:var(--gold-deep);color:var(--gold-deep);}
+  .loc-btn svg{width:16px;height:16px;flex:none;stroke:currentColor;}
+  .loc-status{font-size:11px;color:var(--gold-deep);margin-top:8px;min-height:14px;}
+  .loc-status.err{color:#c0392b;}
+  .of-recap{background:var(--ivory);border:1px solid var(--line);padding:14px 16px;font-size:12.5px;color:var(--noir-soft);}
+  .of-recap .r-line{display:flex;justify-content:space-between;padding:3px 0;}
+  .of-recap .r-total{display:flex;justify-content:space-between;font-family:'Cormorant Garamond';font-weight:600;font-size:16px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);}
+  .of-submit{width:100%;margin-top:2px;}
+  .of-error{font-size:11.5px;color:#c0392b;text-align:center;min-height:14px;}
+
   /* ===== PRODUCT MODAL ===== */
   .modal{
     position:fixed;top:0;left:0;right:0;bottom:0;z-index:1500;display:flex;align-items:center;justify-content:center;
@@ -910,14 +940,59 @@
 <div class="overlay" id="overlay"></div>
 <aside class="cart-drawer" id="cartDrawer">
   <div class="cart-head">
-    <h3>Votre panier</h3>
+    <h3 id="cartHeadTitle">Votre panier</h3>
     <button class="close-btn" id="closeCart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg></button>
   </div>
-  <div class="cart-items" id="cartItems"><div class="cart-empty">Votre panier est vide.</div></div>
-  <div class="cart-foot">
-    <div class="subtotal"><span>Sous-total</span><span class="amt" id="cartSubtotal">0 FCFA</span></div>
-    <button class="btn btn-primary" id="checkoutWhats">Passer la commande via WhatsApp</button>
-    <p class="cart-empty-note" id="checkoutNote"></p>
+
+  <div class="cart-step" id="cartStep" style="display:flex;flex-direction:column;flex:1;min-height:0;">
+    <div class="cart-items" id="cartItems"><div class="cart-empty">Votre panier est vide.</div></div>
+    <div class="cart-foot">
+      <div class="subtotal"><span>Sous-total</span><span class="amt" id="cartSubtotal">0 FCFA</span></div>
+      <button class="btn btn-primary" id="checkoutWhats">Passer la commande via WhatsApp</button>
+      <p class="cart-empty-note" id="checkoutNote"></p>
+    </div>
+  </div>
+
+  <div class="checkout-step" id="checkoutStep" style="display:none;">
+    <button type="button" class="back-link" id="backToCart">← Retour au panier</button>
+    <form class="order-form" id="orderForm">
+      <div class="of-field">
+        <label for="ofName">Nom complet *</label>
+        <input type="text" id="ofName" placeholder="Ex : Awa Diop" autocomplete="name">
+      </div>
+      <div class="of-field">
+        <label for="ofPhone">Téléphone *</label>
+        <input type="tel" id="ofPhone" placeholder="+221 77 000 00 00" autocomplete="tel">
+      </div>
+      <div class="of-row">
+        <div class="of-field">
+          <label for="ofAddress">Adresse / Quartier *</label>
+          <input type="text" id="ofAddress" placeholder="Ex : Sacré-Cœur 3" autocomplete="address-line1">
+        </div>
+        <div class="of-field">
+          <label for="ofCity">Ville</label>
+          <input type="text" id="ofCity" placeholder="Dakar" autocomplete="address-level2">
+        </div>
+      </div>
+      <div class="of-field">
+        <label for="ofLandmark">Point de repère (complément)</label>
+        <input type="text" id="ofLandmark" placeholder="Ex : près de la pharmacie, portail bleu">
+      </div>
+      <div class="of-field">
+        <button type="button" class="loc-btn" id="shareLocBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span id="locBtnLabel">Partager ma position</span>
+        </button>
+        <p class="loc-status" id="locStatus"></p>
+      </div>
+      <div class="of-field">
+        <label for="ofNote">Note (optionnel)</label>
+        <textarea id="ofNote" rows="2" placeholder="Précisions sur la livraison, horaires…"></textarea>
+      </div>
+      <div class="of-recap" id="ofRecap"></div>
+      <button type="submit" class="btn btn-primary of-submit">Envoyer la commande via WhatsApp</button>
+      <p class="of-error" id="ofError"></p>
+    </form>
   </div>
 </aside>
 
@@ -1229,7 +1304,23 @@ document.body.addEventListener('click', (e)=>{
   if(mediaEl){ openModal(parseInt(mediaEl.dataset.id)); }
 });
 
-/* ================= CHECKOUT → WHATSAPP ================= */
+/* ================= CHECKOUT → FORMULAIRE → WHATSAPP ================= */
+const cartStepEl = document.getElementById('cartStep');
+const checkoutStepEl = document.getElementById('checkoutStep');
+const cartHeadTitle = document.getElementById('cartHeadTitle');
+const ofRecapEl = document.getElementById('ofRecap');
+const ofErrorEl = document.getElementById('ofError');
+const locStatusEl = document.getElementById('locStatus');
+const locBtnLabel = document.getElementById('locBtnLabel');
+let sharedLocation = null;
+
+function buildRecap(){
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  ofRecapEl.innerHTML =
+    cart.map(i => `<div class="r-line"><span>${i.name} × ${i.qty}</span><span>${money(i.price*i.qty)}</span></div>`).join('') +
+    `<div class="r-total"><span>Total</span><span>${money(total)}</span></div>`;
+}
+
 document.getElementById('checkoutWhats').addEventListener('click', ()=>{
   const noteEl = document.getElementById('checkoutNote');
   if(cart.length === 0){
@@ -1237,15 +1328,89 @@ document.getElementById('checkoutWhats').addEventListener('click', ()=>{
     return;
   }
   noteEl.textContent = "";
+  buildRecap();
+  cartStepEl.style.display = 'none';
+  checkoutStepEl.style.display = 'flex';
+  checkoutStepEl.style.flexDirection = 'column';
+  checkoutStepEl.style.flex = '1';
+  checkoutStepEl.style.minHeight = '0';
+  cartHeadTitle.textContent = 'Finaliser la commande';
+});
+
+document.getElementById('backToCart').addEventListener('click', ()=>{
+  checkoutStepEl.style.display = 'none';
+  cartStepEl.style.display = 'flex';
+  cartHeadTitle.textContent = 'Votre panier';
+});
+
+document.getElementById('shareLocBtn').addEventListener('click', ()=>{
+  if(!navigator.geolocation){
+    locStatusEl.textContent = "La géolocalisation n'est pas prise en charge par votre navigateur.";
+    locStatusEl.classList.add('err');
+    return;
+  }
+  locStatusEl.classList.remove('err');
+  locStatusEl.textContent = "Localisation en cours…";
+  navigator.geolocation.getCurrentPosition(
+    (pos)=>{
+      const { latitude, longitude } = pos.coords;
+      sharedLocation = `https://maps.google.com/?q=${latitude},${longitude}`;
+      locStatusEl.textContent = "Position partagée ✓";
+      locBtnLabel.textContent = "Position mise à jour";
+    },
+    (err)=>{
+      sharedLocation = null;
+      locStatusEl.classList.add('err');
+      locStatusEl.textContent = "Impossible d'obtenir votre position — vérifiez l'autorisation de localisation.";
+    },
+    { enableHighAccuracy:true, timeout:10000 }
+  );
+});
+
+document.getElementById('orderForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const name = document.getElementById('ofName').value.trim();
+  const phone = document.getElementById('ofPhone').value.trim();
+  const address = document.getElementById('ofAddress').value.trim();
+  const city = document.getElementById('ofCity').value.trim();
+  const landmark = document.getElementById('ofLandmark').value.trim();
+  const note = document.getElementById('ofNote').value.trim();
+
+  if(!name || !phone || !address){
+    ofErrorEl.textContent = "Merci de renseigner votre nom, téléphone et adresse.";
+    return;
+  }
+  ofErrorEl.textContent = "";
+
   const lines = cart.map(i => `• ${i.name} — ${i.vol} × ${i.qty} = ${money(i.price*i.qty)}`);
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
-  const message =
-    "Bonjour Mulk Parfumerie, je souhaite passer la commande suivante :\n\n" +
-    lines.join("\n") +
-    `\n\nTotal : ${money(total)}` +
-    "\n\nMerci de me confirmer la disponibilité et les modalités de livraison.";
+
+  let message = "Bonjour Mulk Parfumerie, je souhaite passer la commande suivante :\n\n";
+  message += lines.join("\n");
+  message += `\n\nTotal : ${money(total)}`;
+  message += "\n\n— Informations de livraison —";
+  message += `\nNom : ${name}`;
+  message += `\nTéléphone : ${phone}`;
+  message += `\nAdresse : ${address}${city ? ', ' + city : ''}`;
+  if(landmark) message += `\nPoint de repère : ${landmark}`;
+  if(sharedLocation) message += `\nLocalisation : ${sharedLocation}`;
+  if(note) message += `\nNote : ${note}`;
+  message += "\n\nMerci de me confirmer la disponibilité et les modalités de livraison.";
+
   const url = `https://wa.me/${whatsNumber}?text=${encodeURIComponent(message)}`;
   window.open(url, '_blank');
+
+  cart = [];
+  renderCart();
+  sharedLocation = null;
+  document.getElementById('orderForm').reset();
+  locStatusEl.textContent = '';
+  locBtnLabel.textContent = 'Partager ma position';
+  checkoutStepEl.style.display = 'none';
+  cartStepEl.style.display = 'flex';
+  cartHeadTitle.textContent = 'Votre panier';
+  closeCart();
+  showToast('Commande envoyée — merci !');
 });
 
 /* ================= PRODUCT MODAL ================= */
